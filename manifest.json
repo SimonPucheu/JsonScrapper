@@ -1,0 +1,14 @@
+{
+    "name": "Json Scrapper",
+    "action": {},
+    "manifest_version": 3,
+    "version": "1.0.0",
+    "description": "Scrap the current webpage on your browser and output the result in JSON",
+    "permissions": [
+        "activeTab",
+        "scripting"
+    ],
+    "background": {
+        "service_worker": "scripts/background.js"
+    }
+}
