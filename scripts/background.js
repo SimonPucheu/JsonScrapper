@@ -32,7 +32,7 @@ function readPage() {
     json.name = 'json';
     var lists = Array.from(document.querySelectorAll('ul')).filter(ul => {return !ul.hasAttributes();});
     var result = [[], []];
-    for (var i = 0; i < 2; i++) lists[i].querySelectorAll('li a').forEach((elem) => result[i].push(muscles.indexOf(elem.innerHTML.replace(/ /g, ''))));
+    for (var i = 0; i < 2; i++) if(lists[i] != null) lists[i].querySelectorAll('li a').forEach((elem) => result[i].push(muscles.indexOf(elem.innerHTML.replace(/ /g, ''))));
     json.value = JSON.stringify({"name": document.querySelector('h1').innerHTML.split(':')[0].substring(10), "muscles": {"primary": result[0], "secondary": result[1], "image": document.querySelectorAll('img.jetpack-lazy-image')[1].src.split('?')[0]}, "video": document.querySelectorAll('img.jetpack-lazy-image')[0].src.split('?')[0]});
     document.body.appendChild(form);
     form.appendChild(json);
